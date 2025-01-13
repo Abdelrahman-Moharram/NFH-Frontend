@@ -17,7 +17,7 @@ export default {
       colors: {
         foreground: "var(--foreground)",
         'primary': '#00A69C',
-        'secondary':'#5F605F',
+        'secondary':'#061631',
       
         background: "var(--background)",
         container: "rgba(var(--container))",

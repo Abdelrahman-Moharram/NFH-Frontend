@@ -37,7 +37,7 @@ const CustomLayout = ({ children }: Props) => {
     
     return (
         <>
-            {Cookies.get('access_token') ? (
+            <Suspense>
                 <div className='flex'>
                     <SideNav />
                     <div className=" w-full min-h-[calc(100vh-78px)] mx-auto overflow-hidden">
@@ -47,11 +47,7 @@ const CustomLayout = ({ children }: Props) => {
                         </Suspense>
                     </div>
                 </div>
-            ) : (
-                <Suspense>
-                    {children}
-                </Suspense>
-            )}
+            </Suspense>
         </>
         
     )

@@ -19,27 +19,16 @@ const NavBar = () => {
 <>
     
     <header className="w-full z-[3] ">
-        <div className="flex items-center gap-8 py-2 bg-secondary">
+        <div className="flex items-center gap-8 py-2">
             <div className="flex flex-1 px-12 items-center justify-end md:justify-between">
-                <nav aria-label="Global" className="md:block">
-                    <ul className="flex items-center gap-6 text-sm">
-                        {
-                            NavLinks.map(item=>(
-                                <li key={item?.link}>
-                                    <Link className="text-negative-color transition hover:text-color" href={item.link}> {item.label} </Link>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </nav>
-
+                
+                <div className=""></div>
                 <div className="flex items-center gap-4">
                     <div className="sm:flex sm:gap-4">
                         <div className="sm:flex sm:gap-4">
                         {
                             isAuthenticated ?
                                 <>
-                                    <Settings />
                                     <UserNavDropDown user={user} />
                                 </>
                             :
