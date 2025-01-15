@@ -62,12 +62,12 @@ const DataTable = ({options, startOptions, data, isLoading, emptyLinkHref, amoun
                             <tr>
                                 {
                                     showCounter?
-                                        <td className='mx-2'>مسلسل</td>
+                                        <td className='mx-2'>#</td>
                                     :null
                                 }
                                 {
                                     getHeaders()?.map((col, idx)=>(
-                                        <th key={idx} className="whitespace-nowrap px-4 py-2 font-bold ">{col}</th>
+                                        <th key={idx} className="whitespace-nowrap px-4 py-2 font-bold text-left">{col}</th>
                                     ))
                                 }
                             </tr>

@@ -1,12 +1,14 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 import SmallCard from '../Cards/SmallCard'
 import { ImageSkeleton } from '../Common';
 
 interface itemType{
-    id: string;
-    name:string;
-    image:string;
-    description:string | undefined
+    label:string
+    href:string
+    icon?:React.ReactNode
+    image?:string
+    description?: string
   }
 interface props{
     items: itemType[]
@@ -26,17 +28,16 @@ const SmallCardsList = ({items, preLink, SkeletonNum, skeletonHeight, skeletonWi
         const total = [];
         for(let i=0; i < SkeletonNum; i ++)
             total.push(<ImageSkeleton key={i} height={height} width={width} rounded='10px' />)
-
         return total
       }
      
   return (
-    <div className={items?.length?"grid grid-cols-2 gap-4 sm:grid-cols-3":""}>
+    <div className={items?.length?"grid grid-cols-2 gap-5 sm:grid-cols-3":""}>
       {
         items?.length || waitingDelay? 
           items?.length?
-          items.map((cat:itemType)=>(
-                <SmallCard preLink={preLink} item={cat} key={cat.id} />
+          items.map((item:itemType)=>(
+                <SmallCard preLink={preLink} item={item} key={item.href} />
             ))
         
         :

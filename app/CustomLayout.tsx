@@ -38,13 +38,17 @@ const CustomLayout = ({ children }: Props) => {
     return (
         <>
             <Suspense>
-                <div className='flex'>
-                    <SideNav />
-                    <div className=" w-full min-h-[calc(100vh-78px)] mx-auto overflow-hidden">
+                <div className='flex px-5'>
+                    <div className="w-[100px]">
+                        <SideNav />
+                    </div>
+                    <div className=" w-full min-h-[calc(100vh-78px)] mx-auto overflow-hidden space-y-3">
                         <NavBar />
-                        <Suspense>
-                            {children}
-                        </Suspense>
+                        <div className="pr-8">
+                            <Suspense>
+                                {children}
+                            </Suspense>
+                        </div>
                     </div>
                 </div>
             </Suspense>

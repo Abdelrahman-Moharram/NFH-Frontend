@@ -2,11 +2,11 @@
 import React from 'react'
 import UserNavDropDown from './UserNavDropDown';
 import { useAppSelector } from '@/redux/hooks';
-import Link from 'next/link';
-import Settings from './Settings';
+
+import Cookies from "js-cookie"
 
 const NavBar = () => {
-    const { isAuthenticated, user, isLoading } = useAppSelector(state => state.auth);
+    const { user } = useAppSelector(state => state.auth);
     
     const NavLinks = [
         {link:'/reports', label:'Reports'},
@@ -27,7 +27,7 @@ const NavBar = () => {
                     <div className="sm:flex sm:gap-4">
                         <div className="sm:flex sm:gap-4">
                         {
-                            isAuthenticated ?
+                            Cookies.get('access_token') ?
                                 <>
                                     <UserNavDropDown user={user} />
                                 </>

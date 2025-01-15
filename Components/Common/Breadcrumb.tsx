@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import ImageSkeleton from './ImageSkeleton';
+import { IoMdArrowDropright } from 'react-icons/io';
 
 interface item{
   href: string;
@@ -19,9 +20,7 @@ const Breadcrumb = ({items}:{items:item[]|undefined}) => {
                     {
                         i !== 0?
                           <div className="mx-3">
-                            <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M6.31494 1.05994L1.42494 5.94994C0.847442 6.52744 0.847442 7.47244 1.42494 8.04994L6.31494 12.9399" stroke="currentColor" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
+                            <IoMdArrowDropright />
                           </div>
 
                         :null

@@ -13,6 +13,7 @@ import { useLogoutMutation } from "@/redux/features/authApiSlice";
 import { ImageSkeleton } from "../Common";
 import { useRouter } from "next/navigation";
 import { FaUser } from "react-icons/fa";
+import Link from "next/link";
 interface user {
   full_name: string;
   username: string;
@@ -43,7 +44,7 @@ const UserNavDropDown = ({ user }: Props) => {
   return (
     <Menu as="div" className="relative inline-block ">
       <div>
-        <MenuButton className="text-negative-color bg-transparent items-center inline-flex w-full justify-center gap-x-2 rounded-full px-3 py-2 text-sm font-semibold transition ">
+        <MenuButton className="text-negative-color bg-secondary drop-shadow-xl items-center inline-flex w-full justify-center gap-x-2 rounded-full px-3 py-2 text-sm font-semibold transition ">
           {user?.id ? (
             <div className="flex items-center gap-2 ">
               <svg
@@ -100,7 +101,7 @@ const UserNavDropDown = ({ user }: Props) => {
                     </Link>
                   )}
                 </MenuItem> 
-              </div>*/}
+              </div> */}
 
           <div className="py-1">
             <MenuItem>

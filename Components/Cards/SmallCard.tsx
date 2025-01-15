@@ -1,21 +1,52 @@
+import Image from 'next/image';
+import Link from 'next/link'
 import React from 'react'
 
+interface itemType{
+    label:string
+    href:string
+    icon?:React.ReactNode
+    image?:string
+    description?: string
+  }
 
 interface props{
-    keyName:string;
-    value:string | undefined
+    item:itemType;
+    preLink: string
 }
-const SmallCard = ({keyName, value}:props) => {
+const SmallCard = ({item, preLink}:props) => {
    
   return (
-    <div
-        className="block rounded-xl drop-shadow-sm p-4 shadow-lg bg-container focus:outline-none focus:ring"
+    <Link
+      key={item.href}
+      className="block rounded-xl border border-gray-100 p-4 default-shadow transition-all hover:scale-105"
+      href={`/${preLink}/`+item.href}
     >
-        <p className="mt-2 text-[14px]">{keyName}</p>
-        <h2 className="font-bold text-[18px]">
-            {value}
-        </h2>
-    </div>
+      <div className="flex items-end gap-3">
+        <span className="inline-block rounded-lg bg-gray-50 p-1">
+        {
+          item.image?
+            <Image
+              height={40}
+              width={40}
+              src={process.env.NEXT_PUBLIC_HOST + item.image} 
+              alt={item.label} 
+              unoptimized
+            />
+          :
+          item.icon?
+            item.icon
+          :null
+        }
+        </span>
+
+        <h2 className="mt-2 font-bold">{item.label}</h2>  
+      </div>  
+
+      <p className="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+        {item.description}
+      </p>
+    </Link>
   )
 }
 
