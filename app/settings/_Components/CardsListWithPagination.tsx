@@ -1,4 +1,3 @@
-import FnBasicCard from '@/Components/Cards/FnBasicCard'
 import React from 'react'
 import { EditDeleteButtons } from './ButtonsGroups'
 import EmptyData from '@/Components/Common/EmptyData'
@@ -24,14 +23,17 @@ interface baseObjType{
 interface Props{
     isLoading: boolean,
     data: any[],
-    editAction:(row:any)=>void,
-    deleteAction:(row:any)=>void,
+    editAction?:(row:any)=>void,
+    deleteAction?:(row:any)=>void,
     total_pages:number,
     page:number,
     emptyMessage?:string
+    customOptions?:(item:baseObjType)=>React.ReactNode
 }
-const CardsListWithPagination = ({data, deleteAction, editAction, isLoading, page, total_pages, emptyMessage}:Props) => {
+const CardsListWithPagination = ({data, deleteAction, editAction, isLoading, page, total_pages, emptyMessage, customOptions}:Props) => {
     const options = (item:baseObjType) =>{
+        if (!editAction || !deleteAction)
+            return <></>
         return (
             <div className="flex justify-start">
                 <EditDeleteButtons
@@ -77,8 +79,8 @@ const CardsListWithPagination = ({data, deleteAction, editAction, isLoading, pag
                             fnKeys={['id']}
                             isLoading={isLoading}
                             isOptions
-                            options={options}
-                            optionsHeader='الإجراءات'
+                            options={customOptions?customOptions:options}
+                            optionsHeader=''
                             showCounter
                         />
                     </div>
@@ -86,7 +88,7 @@ const CardsListWithPagination = ({data, deleteAction, editAction, isLoading, pag
                 :
                     <EmptyData
                         height='100px'
-                        message={emptyMessage || 'لا توجد بيانات'}
+                        message={emptyMessage || 'No Data'}
                     />
             :
                 <div className="grid lg:grid-cols-4 md:lg:grid-cols-3 sm:lg:grid-cols-2 xs:lg:grid-cols-1 gap-3">

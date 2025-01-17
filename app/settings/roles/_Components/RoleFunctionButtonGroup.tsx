@@ -1,13 +1,14 @@
 import React from 'react'
 import { BiEdit } from 'react-icons/bi'
-import { FaTrash } from 'react-icons/fa'
+import { FaTrash, FaUserShield } from 'react-icons/fa'
 
 interface Props{
     editAction:(item:any)=>void, 
     deleteAction:(item:any)=>void,
+    permissionsAction:(item:any)=>void
     item:any
 }
-export const EditDeleteButtons = ({editAction, deleteAction, item}:Props) => {
+export const RoleFunctionButtonGroup = ({editAction, deleteAction, permissionsAction, item}:Props) => {
   return (
     <span className="inline-flex overflow-hidden rounded-md border bg-white shadow-sm">
         <button
@@ -16,6 +17,14 @@ export const EditDeleteButtons = ({editAction, deleteAction, item}:Props) => {
             title="Edit"
         >
             <BiEdit />
+        </button>
+
+        <button
+            onClick={()=>permissionsAction(item)}
+            className="inline-block border-e p-3 text-blue-600 hover:bg-gray-50 focus:relative"
+            title="Edit Permissions"
+        >
+            <FaUserShield />
         </button>
 
         <button

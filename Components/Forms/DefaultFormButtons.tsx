@@ -14,7 +14,7 @@ const DefaultFormButtons = ({cancelHref, isLoading}:Props) => {
             href={cancelHref} 
             className='w-full py-2 rounded-lg border border-secondary text-center hover:bg-secondary hover:text-white transition-all'
         >
-            إلغاء
+            cancel
         </Link>
     </div>
   )

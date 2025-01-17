@@ -8,6 +8,7 @@ interface itemType{
     icon?:React.ReactNode
     image?:string
     description?: string
+    color:string
   }
 
 interface props{
@@ -22,7 +23,7 @@ const SmallCard = ({item, preLink}:props) => {
       className="block rounded-xl border border-gray-100 p-4 default-shadow transition-all hover:scale-105"
       href={`/${preLink}/`+item.href}
     >
-      <div className="flex items-end gap-3">
+      <div className={`flex items-end gap-3 ${item.color}`}>
         <span className="inline-block rounded-lg bg-gray-50 p-1">
         {
           item.image?

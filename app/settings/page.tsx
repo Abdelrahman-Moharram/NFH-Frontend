@@ -1,13 +1,14 @@
 import Breadcrumb from '@/Components/Common/Breadcrumb'
 import SmallCardsList from '@/Components/Lists/SmallCardsList'
 import React from 'react'
-import { FaUsersCog } from 'react-icons/fa'
+import { FaUsersGear, FaUserShield } from 'react-icons/fa6'
+import { GiNotebook } from 'react-icons/gi'
 
 const cardsList = [
-    {label:'Users', href:'users', icon:<FaUsersCog />, description:'You can add, edit, delete activate/deactivate users, and change users role'},
-    {label:'Users', href:'users', icon:<FaUsersCog />, description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
-    {label:'Users', href:'users', icon:<FaUsersCog />, description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
-    {label:'Users', href:'users', icon:<FaUsersCog />, description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
+    {label:'Users', href:'users', color:'text-blue-600', icon:<FaUsersGear />, description:'You can add, edit, delete activate/deactivate users, and change users role.'},
+    {label:'Roles', href:'roles', color:'text-green-600', icon:<FaUserShield />, description:'Manage Roles, and Assign/Remove permissions from role.'},
+    {label:'Reports', href:'reports', color:'text-red-600', icon:<GiNotebook /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
+    {label:'Users', href:'users', color:'text-primary', icon:<FaUserShield /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
 ]
 const BreadcrumbData = [
   {

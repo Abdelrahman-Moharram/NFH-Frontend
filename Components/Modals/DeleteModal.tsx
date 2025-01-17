@@ -32,12 +32,12 @@ const DeleteModal = ({title, open, handleClose, children, deleteAction, isLoadin
             {isLoading ?  
                 <div className='flex items-center gap-1'>
                     <Spinner sm /> 
-                    حذف
+                    Delete
                 </div>
             : 
             <>
                 <FaTrash />
-                حذف
+                Delete
             </>
             }
         </button>

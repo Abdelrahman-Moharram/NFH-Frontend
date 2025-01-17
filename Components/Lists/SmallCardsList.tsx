@@ -9,6 +9,7 @@ interface itemType{
     icon?:React.ReactNode
     image?:string
     description?: string
+    color:string
   }
 interface props{
     items: itemType[]
