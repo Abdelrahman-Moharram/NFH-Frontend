@@ -6,6 +6,16 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { GiNotebook } from "react-icons/gi";
 import { TbMessageChatbotFilled } from "react-icons/tb";
 import { FaCalculator } from "react-icons/fa";
+import SideNavItem from "./SideNavItem";
+
+const NavList = [
+    {title:'Home', icon: <ImHome3 />, href:'/'},
+    {title:'Departments', icon: <BiSolidDashboard />, href:'/departments'},
+    {title:'Home', icon: <IoCalendarSharp />, href:'/'},
+    {title:'Home', icon: <GiNotebook />, href:'/'},
+    {title:'Home', icon: <TbMessageChatbotFilled />, href:'/'},
+    {title:'Home', icon: <FaCalculator />, href:'/'},
+]
 
 export default function SideNav() {
     return (
@@ -15,26 +25,11 @@ export default function SideNav() {
  
                 {/* item */}
 
-                <Link href={"/"} className="block p-4 rounded-full bg-transparent text-xl text-color transition-all hover:bg-secondary hover:text-white">
-                    <ImHome3 />
-                </Link>
-                <Link href={"/"} className="block p-4 rounded-full bg-transparent text-xl text-color transition-all hover:bg-secondary hover:text-white">
-                    <BiSolidDashboard />
-                </Link>
-                <Link href={"/"} className="block p-4 rounded-full bg-transparent text-xl text-color transition-all hover:bg-secondary hover:text-white">
-                    <IoCalendarSharp />
-                </Link>
-                <Link href={"/"} className="block p-4 rounded-full bg-transparent text-xl text-color transition-all hover:bg-secondary hover:text-white">
-                    <GiNotebook />
-                </Link>
-
-                <Link href={"/"} className="block p-4 rounded-full bg-transparent text-xl text-color transition-all hover:bg-secondary hover:text-white">
-                    <TbMessageChatbotFilled />
-                </Link>
-                <Link href={"/"} className="block p-4 rounded-full bg-transparent text-xl text-color transition-all hover:bg-secondary hover:text-white">
-                    <FaCalculator />
-                </Link>
-
+                {
+                    NavList.map((item, idx)=>(
+                        <SideNavItem item={item} key={item.href+idx} />
+                    ))
+                }
             </div>
             <div className={`transition-all duration-500  bg-card rounded-full p-1 default-shadow `}>
                 <Link href={"/settings"} className="block p-4 rounded-full bg-transparent text-xl text-color transition-all hover:bg-secondary hover:text-white">

@@ -10,11 +10,13 @@ import RoleFormModal from './_Components/RoleFormModal'
 import { baseType } from '@/Components/Types/Others'
 import { RoleFunctionButtonGroup } from './_Components/RoleFunctionButtonGroup'
 import RolePermissionsOverlay from './_Components/RolePermissionsOverlay'
+import { ImHome3 } from 'react-icons/im'
 
 const BreadcrumbData = [
   {
-    href: '/',
-    title: 'Home',
+    title:'Home', 
+    icon: <ImHome3 />, 
+    href:'/'
   },
   {
     href: '/settings',

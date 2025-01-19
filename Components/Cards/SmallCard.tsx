@@ -36,7 +36,10 @@ const SmallCard = ({item, preLink}:props) => {
             />
           :
           item.icon?
-            item.icon
+            <div className="" 
+              dangerouslySetInnerHTML={{ __html: item.icon }}
+            />
+            
           :null
         }
         </span>

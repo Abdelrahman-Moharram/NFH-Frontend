@@ -13,9 +13,10 @@ import { BiEdit } from 'react-icons/bi'
 
 const BreadcrumbData = [
   {
-    href: '/',
-    title: 'Home',
-  },
+        title:'Home', 
+        icon: <ImHome3 />, 
+        href:'/'
+},
   {
     href: '/settings',
     title: 'Settings',

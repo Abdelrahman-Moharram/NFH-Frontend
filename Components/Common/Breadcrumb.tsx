@@ -6,6 +6,7 @@ import { IoMdArrowDropright } from 'react-icons/io';
 interface item{
   href: string;
   title: string;
+  icon?: React.ReactNode;
   current?: boolean
 }
 const Breadcrumb = ({items}:{items:item[]|undefined}) => {
@@ -27,9 +28,9 @@ const Breadcrumb = ({items}:{items:item[]|undefined}) => {
                     }
                     {
                       item?.current?
-                          <p className="font-semibold text-color flex gap-2 items-center transition "> {item.title} </p>
+                          <p className="font-semibold text-color flex gap-2 items-center transition "> {item.icon}{item.title} </p>
                         :
-                          <Link href={item.href} className="font-semibold text[20px] text-[#3091F2] hover:text-color flex gap-2 items-center transition "> {item.title} </Link>
+                          <Link href={item.href} className="font-semibold text[20px] text-[#3091F2] hover:text-color flex gap-2 items-center transition ">{item.icon} {item.title} </Link>
 
                     }
                 </li>
