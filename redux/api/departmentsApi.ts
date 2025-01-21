@@ -10,11 +10,19 @@ const departmentsApiSlice = apiSlice.injectEndpoints({
             }),
             providesTags:['departments']
         }),
+
+        getDepartmentDetails: builder.query({
+            query:({dept_name}:{dept_name:string})=>({
+                url:base_url+dept_name+'/',
+            }),
+            providesTags:['departments']
+        }),
     }) 
 })
 
 
 export const {
-    useGetDepartmentsListQuery
+    useGetDepartmentsListQuery,
+    useGetDepartmentDetailsQuery
 
 } = departmentsApiSlice

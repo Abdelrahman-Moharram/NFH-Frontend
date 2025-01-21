@@ -29,12 +29,12 @@ const page = () => {
       </div>
       {
         <SmallCardsList 
-            SkeletonNum={9}
-            items={data?.departments}
-            preLink='departments'
-            skeletonHeight='100px'
-            skeletonWidth='400px'
-            isLoading={isLoading}
+          SkeletonNum={9}
+          items={data?.departments}
+          preLink='departments'
+          skeletonHeight='100px'
+          skeletonWidth='400px'
+          isLoading={isLoading}
         />
       }
       

@@ -1,7 +1,8 @@
 import Breadcrumb from '@/Components/Common/Breadcrumb'
 import SmallCardsList from '@/Components/Lists/SmallCardsList'
 import React from 'react'
-import { FaUsersGear, FaUserShield } from 'react-icons/fa6'
+import { FaUserShield } from 'react-icons/fa'
+import { FaUsersGear } from 'react-icons/fa6'
 import { GiNotebook } from 'react-icons/gi'
 import { ImHome3 } from 'react-icons/im'
 

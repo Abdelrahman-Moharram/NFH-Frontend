@@ -7,6 +7,7 @@ interface itemType{
   label:string
   href:string
   icon?:React.ReactNode
+  icon_str?:string
   image?:string
   description?: string
   color:string
