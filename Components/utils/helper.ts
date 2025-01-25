@@ -1,25 +1,7 @@
+import { MutableRefObject } from "react"
+import html2canvas from "html2canvas";
 
-export const handleCaseBadgeColor = (state:string) =>{
-    
-    if (state === 'منتهية')
-        return '#3091F2'
-    else if (state === 'قيد النظر')
-        return '#F27E30'
-    else if (state === 'مشطوبة')
-        return '#C91010'
-    else if (state === 'منتهي بعدم السداد')
-        return '#B81313'
-    else if (state === 'قرار 34' || state === 'قرار 46')
-        return '#6B13B8'
-    else if (state === 'منتهي بالسداد' || state === 'حكم')
-        return '#13B860'
-    else if (state === 'بيع عقار أو منقول')
-        return '#D7A80D'
-    else if (state === 'رهن عقاري')
-        return '#F27E30'
-    else
-        return '#7E7E7E'
-}
+import { jsPDF } from "jspdf";
 
 
 export const to_int_or_default = (val:string|null)=>{
@@ -46,3 +28,29 @@ export const numberToMoney = (value:number|string|null) =>{
 
     return decimalPart !== undefined ? `${formattedInteger}.${decimalPart}` : formattedInteger;
 }
+
+
+
+export const exportAsPng = async (elementRef:any) => {
+    if (elementRef.current) {
+      const canvas = await html2canvas(elementRef.current);
+      const imgData = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = "export.png";
+      link.click();
+    }
+  };
+
+  // Function to export as PDF
+export const exportAsPdf = async (elementRef:any) => {
+    if (elementRef.current) {
+      const canvas = await html2canvas(elementRef.current);
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save("export.pdf");
+    }
+  };

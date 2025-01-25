@@ -21,7 +21,7 @@ export default function SideNav() {
     return (
         <div className={`fixed transition-all duration-500 flex flex-col justify-around h-screen ${Cookies.get('access_token')?'':'mx-[-160px]'}`}>
             
-            <div className={`transition-all duration-500  bg-card rounded-full p-1 default-shadow`}>
+            <div className={`transition-all duration-500  bg-card rounded-full p-1`}>
  
                 {/* item */}
 
@@ -31,7 +31,7 @@ export default function SideNav() {
                     ))
                 }
             </div>
-            <div className={`transition-all duration-500  bg-card rounded-full p-1 default-shadow `}>
+            <div className={`transition-all duration-500  bg-card rounded-full p-1 `}>
                 <Link href={"/settings"} className="block p-4 rounded-full bg-transparent text-xl text-color transition-all hover:bg-secondary hover:text-white">
                     <IoSettingsSharp  />
                 </Link>
