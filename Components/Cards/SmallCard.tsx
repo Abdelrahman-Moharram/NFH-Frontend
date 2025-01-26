@@ -5,7 +5,8 @@ import React from 'react'
 interface itemType{
     label:string
     href:string
-    icon?:React.ReactNode
+    icon?:React.ReactNode | string
+    icon_str?: string
     image?:string
     description?: string
     color:string
@@ -36,11 +37,16 @@ const SmallCard = ({item, preLink}:props) => {
             />
           :
           item.icon?
-            <div className="" 
-              dangerouslySetInnerHTML={{ __html: item.icon }}
+            item.icon
+          :
+          item.icon_str?
+            <div className={``}
+              style={{color:`${item.color}`}} 
+              dangerouslySetInnerHTML={{ __html: item.icon_str }}
             />
-            
-          :null
+          :
+            null
+
         }
         </span>
 

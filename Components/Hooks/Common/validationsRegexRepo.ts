@@ -13,7 +13,7 @@ export const emailPattern           = '^[a-z][a-z0-9-_\.]+@[a-z.]+\.[a-z]{2,3}$'
 
 export const caseNumberRegex        = {value:caseNumberPattern, message:'رقم القضية يجب أن يحتوي على أرقام فقط ولا يقل عن ثلاثة أرقام ولا يزيد عن 20 رقما'}
 export const usernameRegex          = {value:usernamePattern, message:'اسم المستخدم يجب ان يبدأ بأحرف ويحتوي على 3 أحرف على الأقل ولا يحتوي على [+%$#/|\!]'}
-export const fullNameRegex          = {value:fullNamePattern, message:'اسم المستخدم باللغة العربية يجب ان يكون كاملا باللغة العربية و بدون ارقام ولا يقل عن 5 أحرف'}
+export const fullNameRegex          = {value:fullNamePattern, message_en:'Full Name Should have at least 5 letters and no digits', message:'اسم المستخدم باللغة العربية يجب ان يكون كاملا باللغة العربية و بدون ارقام ولا يقل عن 5 أحرف'}
 export const phoneNumberRegex       = {value:phoneNumberPattern, message:'يجب أن يحتوي يبدأ رقم الجوال على 8 ارقام بعد (9665+)'}
 export const judgementNumberRegex   = {value:numberPattern, message:'رقم الحكم يجب أن يحتوي على أرقام فقط ويحتوي على 3 أرقام أو أكثر'}
 export const amountRegex            = {value:amountPattern, message:'يجب أن يحتوي الملبغ على أرقام فقط'}
