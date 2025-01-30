@@ -27,10 +27,10 @@ const options = {
     for(let i = 0; i < Math.random()*10; i++)
     {
         l.push(
-            <div className="col-span-3">
+            <div className="w-[50%]">
                 <ImageSkeleton
                     height='510px'
-                    width='97%'
+                    width='100%'
                     rounded='10px'
                     margin='4px'
                     shadow
@@ -42,7 +42,7 @@ const options = {
   }
 const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
   return (
-    <div className='grid grid-cols-6'>
+    <div className='flex gap-1'>
 
         {
         isLoading?
@@ -50,20 +50,18 @@ const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
         :
         charts?
             charts?.map((chart:any)=>(
-            <div className={`  ${'col-span-'+String(chart?.chart?.options?.width)} px-2`}>
+            <div className={`bg-card h-auto px-2 rounded-xl`} style={{width:`${chart?.chart?.options?.width}`}}>
                 <Chart
-                    type={chart?.chart?.options?.type}
-                    title={chart?.name}
-                    data={chart?.chart?.data}
-                    options={options}
-                    colSpan={4}
-                    controls
-                    customBackGround=''
+                  type={chart?.chart?.options?.type}
+                  title={chart?.name}
+                  data={chart?.chart?.data}
+                  options={options}
+                  controls
                 />
             </div>
             ))
         :
-            <div className="col-span-6">
+            <div className="w-full">
                 <EmptyData 
                     height='510px'
                     message='No Charts Available'

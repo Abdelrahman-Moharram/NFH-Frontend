@@ -6,12 +6,11 @@ import { exportAsPdf, exportAsPng } from '../utils/helper'
 import { ImageIcon, PdfIcon } from '../Shared/SharedIcons'
 
 interface Props{
-  customBackGround: string,
+  // customBackGround: string,
   controls: boolean
-  colSpan: 1 | 2 | 3 | 4
   title? : string
 }
-const Chart = ({title, data, options, type, customBackGround, colSpan, controls}:chartTypes & Props) => {
+const Chart = ({title, data, options, type, controls}:chartTypes & Props) => {
   const elementRef = useRef<HTMLDivElement>(null);
   
   const GetChartOptions = () =>{
@@ -30,17 +29,17 @@ const Chart = ({title, data, options, type, customBackGround, colSpan, controls}
     <div className="relative">
       
       <GetChartOptions />
-      
-      <div className='bg-card p-4 rounded-xl drop-shadow-xl overflow-hidden pt-6 space-y-5 ' ref={elementRef}>
+      <div className="p-4">
         <div className="text-[24px] font-extrabold text-secondary ">
           {title}
         </div>
-        
-        <DynamicChart
-          type={type}
-          data={data}
-          options={options}
-        />
+        <div className='drop-shadow-xl overflow-hidden pt-6 space-y-5 h-full my-auto' ref={elementRef}>
+          <DynamicChart
+            type={type}
+            data={data}
+            options={options}
+          />
+        </div>
       </div>
     </div>
   )

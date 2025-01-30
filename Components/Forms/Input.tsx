@@ -8,7 +8,7 @@ interface props {
 	type: string;
 	onChange: (e:ChangeEvent<HTMLInputElement>) => void;
 	value: string | number | Time | null;
-	label: string
+	label?: string
 	required?: boolean;
     children?: React.ReactNode | undefined
     errors?:any[]
@@ -47,7 +47,7 @@ const Input = ({
 					defaultValue={defaultValue}
 					required={required}
 					placeholder={placeholder}
-					className={"mt-1 w-full py-2 px-4 bg-card blur-none border border-[#E3E5E5] rounded-xl outline-none "+ (errors?.length?"border-red-500":"  ")}
+					className={"mt-0 w-full py-1 px-4 blur-none border border-[#E3E5E5] rounded-lg outline-none "+ (errors?.length?"border-red-500":"  ")}
 				/>
 				{
 					type === 'password'?

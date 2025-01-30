@@ -28,14 +28,14 @@ const FormWithFloatingInputs = ({
   return (
     <form className='space-y-6' onSubmit={onSubmit}>
 			{inputs.map(input => (
-				<FloatingInput
-					key={input.labelId}
-					labelId={input.labelId}
-					type={input.type}
-					onChange={(e:ChangeEvent<HTMLInputElement>)=>onChange(e)}
-					value={input.value}
-					required={input.required}
-          label={input.label}
+			<FloatingInput
+				key={input.labelId}
+				labelId={input.labelId}
+				type={input.type}
+				onChange={(e:ChangeEvent<HTMLInputElement>)=>onChange(e)}
+				value={input.value}
+				required={input.required}
+				label={input.label}
   			/>
 
 			))}

@@ -32,7 +32,7 @@ const ImageInput = ({labelId,
     <div>
         <label
             htmlFor={labelId}
-            className="flex bg-[#FFF8E8] w-[300px] min-h-[200px] overflow-hidden relative justify-center gap-2 items-center hover:bg-primary/30 rounded-md cursor-pointer"
+            className="flex bg-primary/10 w-[300px] min-h-[200px] overflow-hidden p-5 relative justify-center gap-2 items-center hover:bg-primary/30 rounded-md cursor-pointer"
         >
             <span
                 className="h-full"
@@ -41,13 +41,13 @@ const ImageInput = ({labelId,
                 file? 
                     <div className='relative'>
                         {
-                            typeof(file) === 'string' && (file.includes('.png') || file.includes('.jp'))?
+                            typeof(file) === 'string' && (file.includes('.png') || file.includes('.jp') || file.includes('.svg'))?
                             <img 
-                                src={process.env.NEXT_PUBLIC_HOST+"/media/"+file} 
-                                className='inputImage fade-in rounded-md w-[300px] h-[300px] overflow-hidden'
+                                src={process.env.NEXT_PUBLIC_HOST+"/"+file} 
+                                className='inputImage fade-in rounded-md w-[100px] h-[100px] overflow-hidden'
                                 alt="uploaded file" 
-                                width={300}
-                                height={200}
+                                width={100}
+                                height={100}
                                 
                             />
                             :
@@ -87,7 +87,7 @@ const ImageInput = ({labelId,
                         >
                             <div className="hidden bg-card text-color gap-2 items-center px-8 py-3 rounded-md">
                                 <IoIosCloudUpload />
-                                تغيير
+                                Change
                             </div>
                         </div>
                     </div>
@@ -115,9 +115,24 @@ const ImageInput = ({labelId,
             placeholder={label}
         />
         {
-            errors?.map(error=>
-                <span key={error} className='text-red-500 block'>{error}</span>
-            )
+            typeof(errors) === 'string'?
+                <div className="mb-3">
+                        <div className="absolute">
+                            <span key={errors} className='text-red-500 block'>{errors}</span>
+                        </div>
+                </div>
+            :
+                errors?.length?
+                    <div className="mb-3">
+                        <div className="absolute">
+                            {
+                                errors?.map(error=>
+                                    <span key={error} className='text-red-500 block'>{error}</span>
+                                )
+                            }
+                        </div>
+                    </div>
+                :null
         }
     </div>
   )

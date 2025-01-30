@@ -3,3 +3,10 @@ export interface chartTypes {
     data: any; 
     options?: any;
 }
+
+export interface departmentFormType{
+    name:string
+    ar_name:string
+    icon:File | string
+    color:string
+}
