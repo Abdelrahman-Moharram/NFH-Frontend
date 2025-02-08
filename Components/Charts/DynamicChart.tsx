@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2';
-import { chartTypes } from './Types';
+import { chart_types } from './Types';
 import { Chart as ChartJS, registerables } from 'chart.js';
 
 ChartJS.register(...registerables);
@@ -14,7 +14,7 @@ const chartComponents = {
 };
 
 
-const DynamicChart = ({ type, data, options }:chartTypes) => {
+const DynamicChart = ({ type, data, options }:chart_types) => {
   
 
   const ChartComponent = chartComponents[type];

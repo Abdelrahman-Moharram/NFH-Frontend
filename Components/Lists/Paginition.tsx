@@ -20,11 +20,10 @@ const Paginition = ({totalPages}:props) => {
           return params.toString()
         },
         [searchParams]
-      )
+    )
 
       if(!size){
         size = 10
-        
         router.push(pathname + '?' + createQueryString('size', '10'))
       }
       if(!page){

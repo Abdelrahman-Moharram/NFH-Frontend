@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import DynamicChart from './DynamicChart'
-import { chartTypes } from './Types'
+import { chart_types } from './Types'
 import Options from '../Common/Options'
 import { exportAsPdf, exportAsPng } from '../utils/helper'
 import { ImageIcon, PdfIcon } from '../Shared/SharedIcons'
@@ -10,7 +10,7 @@ interface Props{
   controls: boolean
   title? : string
 }
-const Chart = ({title, data, options, type, controls}:chartTypes & Props) => {
+const Chart = ({title, data, options, type, controls}:chart_types & Props) => {
   const elementRef = useRef<HTMLDivElement>(null);
   
   const GetChartOptions = () =>{

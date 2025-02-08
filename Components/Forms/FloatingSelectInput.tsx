@@ -2,13 +2,15 @@ import React, { ChangeEvent } from 'react'
 
 interface props {
 	labelId: string;
-	children: React.ReactNode;
+	children?: React.ReactNode;
 	onChange: (e:ChangeEvent<HTMLSelectElement>) => void;
 	value: string;
 	label: string
 	required?: boolean;
     emptyoption?:boolean;
     errors?: []
+    options?:{value:string, label:string}[]
+
 }
 
 const FloatingSelectInput = ({
@@ -19,7 +21,9 @@ const FloatingSelectInput = ({
     label,
 	required = false,
     emptyoption = true,
-    errors
+    errors,
+    options
+
 }: props) => {
   return (
     <>
@@ -40,7 +44,14 @@ const FloatingSelectInput = ({
                     <option value=""></option>
                 :null
             }
-            {children}
+            {
+                children?
+                    children
+                :
+                    options?.map(option=>(
+                        <option value={option.value} key={option.value}>{option.label}</option>
+                    ))
+            }
         </select>
 
         <span

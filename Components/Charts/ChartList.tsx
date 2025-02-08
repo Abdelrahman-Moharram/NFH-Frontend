@@ -48,7 +48,7 @@ const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
         isLoading?
             <DynamicChartSkeleton />
         :
-        charts?
+        charts && charts?.length?
             charts?.map((chart:any)=>(
             <div className={`bg-card h-auto px-2 rounded-xl`} style={{width:`${chart?.chart?.options?.width}`}}>
                 <Chart

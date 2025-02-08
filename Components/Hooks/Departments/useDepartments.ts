@@ -24,6 +24,7 @@ export const useDpartmentsForm = ({dept_name}:{dept_name?:string}) =>{
                     console.log(err);
                 })
         }
+        
     }, [dept_name])
 
     const [form, setForm] = useState<departmentFormType>(baseDepartment)
@@ -66,6 +67,7 @@ export const useDpartmentsForm = ({dept_name}:{dept_name?:string}) =>{
     
 
     const getAsFormData = () =>{
+        
         const formData = new FormData()
         formData.append('name', form.name)
         formData.append('ar_name', form.ar_name)

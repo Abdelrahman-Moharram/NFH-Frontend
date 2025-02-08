@@ -1,44 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
+import StepsItem from './StepItem'
 
-const Stepper = () => {
+const Stepper = ({steps, currentStep}:{steps:Step[], currentStep:number}) => {
+    
+
   return (
-    <div>
+    <div className='my-5 min-h-[70vh] shadow-xl p-12 border rounded-lg relative'>
         <h2 className="sr-only">Steps</h2>
 
-        <div>
-            <ol className="flex items-center gap-2 text-xs font-medium text-gray-500 sm:gap-4">
-            <li className="flex">
-                <span className="rounded bg-green-50 p-1.5 text-green-600">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-3 w-3"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                >
-                    <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                    />
-                </svg>
-                </span>
-            </li>
-
-            <li className="flex items-center justify-center gap-2 text-blue-600">
-                <span className="size-6 rounded bg-blue-50 text-center text-[10px]/6 font-bold"> 2 </span>
-
-                <span> Address </span>
-            </li>
-
-            <li className="flex items-center justify-end gap-2">
-                <span className="size-6 rounded bg-gray-50 text-center text-[10px]/6 font-bold text-gray-600">
-                3
-                </span>
-
-                <span> Payment </span>
-            </li>
+        <div
+            className="relative after:absolute after:inset-x-0 after:top-1/2 after:block after:h-0.5 after:-translate-y-1/2 after:rounded-lg after:bg-gray-100 bg-container default-shadow shadow-inner rounded-lg overflow-hidden px-4"
+        >
+            <ol className="relative z-10 flex justify-between text-sm font-medium text-gray-500">
+                {
+                    steps?.map(step=>(
+                        <StepsItem
+                            is_done={currentStep > step.number}
+                            name={step.name}
+                            number={step.number}
+                            key={step.number}
+                            is_current={currentStep == step.number}
+                        />
+                    ))
+                }
             </ol>
         </div>
+        {
+            steps[currentStep-1]?.component
+        }
     </div>
   )
 }

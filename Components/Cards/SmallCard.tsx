@@ -36,16 +36,16 @@ const SmallCard = ({item, preLink}:props) => {
               unoptimized
             />
           :
-          item.icon?
-            item.icon
-          :
-          item.icon_str?
-            <div className={``}
-              style={{color:`${item.color}`}} 
-              dangerouslySetInnerHTML={{ __html: item.icon_str }}
+          typeof(item.icon)=='string' ?
+            <Image
+              height={40}
+              width={40}
+              src={process.env.NEXT_PUBLIC_HOST + item?.icon} 
+              alt={item.label} 
+              unoptimized
             />
           :
-            null
+            item.icon
 
         }
         </span>

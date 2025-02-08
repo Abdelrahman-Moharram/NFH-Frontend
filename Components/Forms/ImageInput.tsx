@@ -10,8 +10,7 @@ interface props {
 	label: string
 	required?: boolean;
     errors?: string[];
-    id?:string
-    
+    id?:string;    
 }
 
 const ImageInput = ({labelId,
@@ -21,7 +20,7 @@ const ImageInput = ({labelId,
 	label,
 	required = false,
     errors,
-    id
+    id,
 }: props) => {
     let objectUrl = undefined
     if(file && typeof(file) !== 'string'){
@@ -44,11 +43,10 @@ const ImageInput = ({labelId,
                             typeof(file) === 'string' && (file.includes('.png') || file.includes('.jp') || file.includes('.svg'))?
                             <img 
                                 src={process.env.NEXT_PUBLIC_HOST+"/"+file} 
-                                className='inputImage fade-in rounded-md w-[100px] h-[100px] overflow-hidden'
+                                className={`inputImage fade-in rounded-md w-[100px] h-[100px] overflow-hidden`}
                                 alt="uploaded file" 
                                 width={100}
                                 height={100}
-                                
                             />
                             :
                             typeof(file) === 'string' ?

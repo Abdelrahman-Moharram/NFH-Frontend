@@ -17,6 +17,12 @@ const departmentsApiSlice = apiSlice.injectEndpoints({
             }),
             providesTags:['departments']
         }),
+
+        getDepartmentReports: builder.query({
+            query:({dept_name}:{dept_name:string})=>({
+                url:base_url+dept_name+'/reports/',
+            }),
+        }),
         
         getFormDepartmentDetails: builder.mutation({
             query:({dept_name}:{dept_name:string})=>({
@@ -38,7 +44,6 @@ const departmentsApiSlice = apiSlice.injectEndpoints({
                 url:base_url+'add/',
                 body:form,
                 method:'POST',
-
             }),
         }),
     }) 
@@ -48,6 +53,7 @@ const departmentsApiSlice = apiSlice.injectEndpoints({
 export const {
     useGetDepartmentsListQuery,
     useGetDepartmentDetailsQuery,
+    useGetDepartmentReportsQuery,
     useGetFormDepartmentDetailsMutation,
     useAddDepartmentMutation,
     useEditDepartmentMutation,

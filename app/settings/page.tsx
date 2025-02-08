@@ -7,22 +7,23 @@ import { GiNotebook } from 'react-icons/gi'
 import { ImHome3 } from 'react-icons/im'
 
 const cardsList = [
-    {label:'Users', href:'users', color:'text-blue-600', icon:<FaUsersGear />, description:'You can add, edit, delete activate/deactivate users, and change users role.'},
-    {label:'Roles', href:'roles', color:'text-green-600', icon:<FaUserShield />, description:'Manage Roles, and Assign/Remove permissions from role.'},
-    {label:'Reports', href:'reports', color:'text-red-600', icon:<GiNotebook /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
-    {label:'Users', href:'users', color:'text-primary', icon:<FaUserShield /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
+  {label:'Departments', href:'departments', color:'text-blue-600', icon:<FaUsersGear />, description:'You can add, edit, delete activate/deactivate users, and change users role.'},
+  {label:'Reports', href:'reports', color:'text-red-600', icon:<GiNotebook /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
+  {label:'Users', href:'users', color:'text-blue-600', icon:<FaUsersGear />, description:'You can add, edit, delete activate/deactivate users, and change users role.'},
+  {label:'Roles', href:'roles', color:'text-green-600', icon:<FaUserShield />, description:'Manage Roles, and Assign/Remove permissions from role.'},
+  {label:'Users', href:'users', color:'text-primary', icon:<FaUserShield /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
 ]
 const BreadcrumbData = [
-    {
-        title:'Home', 
-        icon: <ImHome3 />, 
-        href:'/'
-    },
-    {
-        href: '/settings',
-        title: 'Settings',
-        current:true
-    }
+  {
+    title:'Home', 
+    icon: <ImHome3 />, 
+    href:'/'
+  },
+  {
+    href: '/settings',
+    title: 'Settings',
+    current:true
+  }
 ]
 const page = () => {
 

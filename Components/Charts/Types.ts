@@ -1,4 +1,4 @@
-export interface chartTypes {
+export interface chart_types {
     type : 'bar' | 'line' | 'pie' | 'doughnut'
     data: any; 
     options?: any;

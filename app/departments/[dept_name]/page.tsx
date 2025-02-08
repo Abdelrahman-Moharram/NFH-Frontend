@@ -3,6 +3,7 @@ import ChartList from '@/Components/Charts/ChartList'
 import Breadcrumb from '@/Components/Common/Breadcrumb'
 import { useGetDepartmentDetailsQuery } from '@/redux/api/departmentsApi'
 import { useAppSelector } from '@/redux/hooks'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 import React from 'react'
@@ -15,6 +16,8 @@ const page = () => {
     
   
   
+  console.log(data?.department?.charts);
+  
   return (
     <div className='px-4'>
       <Breadcrumb
@@ -24,13 +27,16 @@ const page = () => {
         <div className="flex gap-5 mt-10 items-center text-[36px] font-extrabold mb-8">
           {
             data?.department?.icon?
-            <div className={``}
-            style={{color:`${data?.department?.color}`}} 
-            dangerouslySetInnerHTML={{ __html: data?.department?.icon }}
+            <Image
+              height={40}
+              width={40}
+              src={process.env.NEXT_PUBLIC_HOST + data?.department?.icon} 
+              alt={data?.department?.label} 
+              unoptimized
             />
             :null
           }
-          {data?.department?.label}
+          <h1>{data?.department?.label}</h1>
         </div>
         
         <div className="">
