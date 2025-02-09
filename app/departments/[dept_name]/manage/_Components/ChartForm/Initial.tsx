@@ -14,7 +14,7 @@ const Initial = ({
   selectChange,
   dropdowns,
   currentStep,
-  onSubmit
+  onSubmit,
 }:SharedProps) => {
   return (
     <form 

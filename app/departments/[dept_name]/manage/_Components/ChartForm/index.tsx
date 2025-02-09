@@ -1,12 +1,11 @@
 'use client'
-import React, { ChangeEvent, FormEvent, useCallback } from 'react'
+import React, { ChangeEvent, FormEvent, useState } from 'react'
 import Stepper from '@/Components/Common/Stepper'
 import MainData from './MainData'
 import Initial from './Initial'
 import { ChartFormType, useChartsForm } from '../../../../../../Components/Hooks/Reports/useChart'
 import { ValidationsType } from '@/Components/Types/Others'
-import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { to_int_or_default } from '@/Components/utils/helper'
+import { useParams } from 'next/navigation'
 import SelectCols from './SelectCols'
 
 export interface SharedProps{
@@ -16,19 +15,14 @@ export interface SharedProps{
     selectChange    :   (e: ChangeEvent<HTMLSelectElement>,  validationSchema?:ValidationsType)=>void,
     dropdowns       :   any
     currentStep     :   number
-    onSubmit        :   (e:FormEvent)=>void
+    onSubmit        :   (e:FormEvent)=>void,
 }
 
 const ChartForm = () => {
     const {dept_name}:{dept_name:string} = useParams()
-    const router = useRouter()
-    const pathName = usePathname()
-    const searchParams = useSearchParams()
-    const step = to_int_or_default(searchParams.get("step")) 
 
-    if(!step){
-        router.push(pathName + '?step=1')
-    }
+
+    
     const {
         form,
         formErrors,
@@ -36,8 +30,11 @@ const ChartForm = () => {
         selectChange,
         dropdowns,
         submitBaseData,
-        submitChartData
-    } = useChartsForm({dept_name, step})
+        submitChartData,
+        submitAxisData,
+        setForm,
+        step,
+    } = useChartsForm({dept_name})
 
     const Steps = [
         {
@@ -78,8 +75,9 @@ const ChartForm = () => {
                         onChange={onChange}
                         selectChange={selectChange}
                         dropdowns={dropdowns} 
+                        onSubmit={submitAxisData}
                         currentStep={step}
-                        onSubmit={submitChartData}
+                        setForm={setForm}
                     />
         },
         

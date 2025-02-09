@@ -1,6 +1,6 @@
 import { DefaultInputValidate } from "@/Components/Hooks/Common/useValidations"
 import { ValidationsType } from "@/Components/Types/Others"
-import { useAddReportBaseDataMutation, useAddReportChartDataMutation, useAddReportMutation, useGetFormDropdownsQuery,  } from "@/redux/api/reportsApi"
+import { useAddChartAxisMutation, useAddReportBaseDataMutation, useAddReportChartDataMutation, useAddReportMutation, useGetFormDropdownsQuery,  } from "@/redux/api/reportsApi"
 import { usePathname, useRouter } from "next/navigation"
 import { ChangeEvent, FormEvent, useState } from "react"
 import { toast } from "react-toastify"
@@ -10,7 +10,9 @@ const baseChartForm = {
     connection:'',
     chart_type:'',
     query:'',
-    width:''
+    width:'',
+    x_axis:'',
+    y_axes:[]
 }
 export interface ChartFormType{
     name        :string
@@ -19,11 +21,15 @@ export interface ChartFormType{
     query       :string
     width       :string
     report_id?  :string
+    chart_id?   :string
+    x_axis      :string
+    y_axes      :string[]
 }
 
-export const useChartsForm = ({dept_name, chart_id, step}:{dept_name:string, chart_id?:string, step:number}) =>{
+export const useChartsForm = ({dept_name, chart_id}:{dept_name:string, chart_id?:string}) =>{
     const [form, setForm]               = useState<ChartFormType>(baseChartForm)
     const [formErrors, setFormErrors]   = useState<any>()
+    const [step, setStep]               = useState<number>(1)
     const pathName                      = usePathname()
     const router                        = useRouter()
     
@@ -31,6 +37,7 @@ export const useChartsForm = ({dept_name, chart_id, step}:{dept_name:string, cha
     const [addReport]                   = useAddReportMutation()
     const [addReportBaseData]           = useAddReportBaseDataMutation()
     const [addReportChartData]          = useAddReportChartDataMutation()
+    const [addChartAxis]                = useAddChartAxisMutation()
 
 
     // functions
@@ -47,6 +54,8 @@ export const useChartsForm = ({dept_name, chart_id, step}:{dept_name:string, cha
             setFormErrors({...formErrors, [name]:DefaultInputValidate({name, value, validationSchema})})
         setForm({ ...form, [name]: value });
     }
+
+    
 
 
 
@@ -75,7 +84,7 @@ export const useChartsForm = ({dept_name, chart_id, step}:{dept_name:string, cha
                     toast.success(res?.message)
                 setForm({...form, report_id:res?.id})
                 router.push(pathName+`?step=${step+1}`)
-                
+                setStep(2)
 
             }).catch(err=>{
                 console.log(err?.data);
@@ -100,11 +109,40 @@ export const useChartsForm = ({dept_name, chart_id, step}:{dept_name:string, cha
             .then(res=>{
                 if(res?.message)
                     toast.success(res?.message)
-                // router.push(pathName+`?step=${step+1}`)
+                setForm({...form, chart_id:res?.id})
+                setStep(3)
             }).catch(err=>{
                 console.log(err?.data);
             })
 
+    }
+
+
+    const submitAxisData = (e:FormEvent) =>{
+        e.preventDefault()
+        const formData = new FormData()
+        
+        if(!form.x_axis || !form.y_axes?.length)
+        {
+            toast.error('please select a valid dims for the chart')
+            return
+
+        }
+        formData.append('x', form.x_axis)
+
+        for(let col of form.y_axes)
+            formData.append('y', col)
+
+        if(form?.chart_id)
+            addChartAxis({chart_id:form?.chart_id, form:formData})
+            .unwrap()
+            .then(res=>{
+                toast.success(res?.message)
+                router.push('/departments/human-resources/manage/charts')
+            })
+            .catch(err=>{
+                console.log(err);
+            })
     }
         
 
@@ -128,6 +166,8 @@ export const useChartsForm = ({dept_name, chart_id, step}:{dept_name:string, cha
         }
     }
 
+    
+
 return {
         form,
         formErrors,
@@ -136,9 +176,11 @@ return {
         setFormErrors,
         getAsFormData,
         dropdowns,
-
+        step,
         submitBaseData,
         submitChartData,
+        submitAxisData,
         submitAllChartData,
+        setForm
     }
 }
