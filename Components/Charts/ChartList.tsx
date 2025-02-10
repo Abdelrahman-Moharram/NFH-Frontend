@@ -42,15 +42,15 @@ const options = {
   }
 const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
   return (
-    <div className='flex gap-1'>
+    <div className='grid grid-cols-2 gap-4 space-y-4 py-12'>
 
         {
-        isLoading?
+          isLoading?
             <DynamicChartSkeleton />
         :
-        charts && charts?.length?
+          charts && charts?.length?
             charts?.map((chart:any)=>(
-            <div className={`bg-card h-auto px-2 rounded-xl`} style={{width:`${chart?.chart?.options?.width}`}}>
+            <div className={`bg-card h-auto px-2 rounded-xl ${chart?.chart?.options?.width == '100%' ? 'col-span-2':'col-span-1'}`}>
                 <Chart
                   type={chart?.chart?.options?.type}
                   title={chart?.name}
@@ -59,14 +59,14 @@ const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
                   controls
                 />
             </div>
-            ))
+          ))
         :
-            <div className="w-full">
-                <EmptyData 
-                    height='510px'
-                    message='No Charts Available'
-                />
-            </div>
+          <div className="col-span-2">
+            <EmptyData 
+              height='510px'
+              message='No Charts Available'
+            />
+          </div>
         }
     </div>
   )

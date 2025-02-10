@@ -8,8 +8,9 @@ const page = () => {
     
     
   return (
-    <main className="flex  justify-center items-center min-h-screen bg-login-image bg-cover bg-bottom">
-        <div className="rounded-lg w-fit h-fit bg-container py-20 drop-shadow-2xl login-container px-12">
+    <main className="flex justify-center items-center min-h-screen">
+        <div className="bg-login-image"></div>
+        <div className="rounded-lg w-fit h-fit bg-container bg-login-container py-20 drop-shadow-2xl px-12">
             <div className="text-center mb-12">
                 <h1 className='text-[36px] mb-4 font-[800]'>
                     NFH DASHBOARD

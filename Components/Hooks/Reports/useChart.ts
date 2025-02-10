@@ -1,7 +1,7 @@
 import { DefaultInputValidate } from "@/Components/Hooks/Common/useValidations"
 import { ValidationsType } from "@/Components/Types/Others"
-import { useAddChartAxisMutation, useAddReportBaseDataMutation, useAddReportChartDataMutation, useAddReportMutation, useGetFormDropdownsQuery,  } from "@/redux/api/reportsApi"
-import { usePathname, useRouter } from "next/navigation"
+import { useAddChartAxisMutation, useAddReportBaseDataMutation, useAddReportChartDataMutation, useGetFormDropdownsQuery,  } from "@/redux/api/reportsApi"
+import { useRouter } from "next/navigation"
 import { ChangeEvent, FormEvent, useState } from "react"
 import { toast } from "react-toastify"
 
@@ -30,11 +30,10 @@ export const useChartsForm = ({dept_name, chart_id}:{dept_name:string, chart_id?
     const [form, setForm]               = useState<ChartFormType>(baseChartForm)
     const [formErrors, setFormErrors]   = useState<any>()
     const [step, setStep]               = useState<number>(1)
-    const pathName                      = usePathname()
     const router                        = useRouter()
     
     const {data:dropdowns}              = useGetFormDropdownsQuery(undefined)
-    const [addReport]                   = useAddReportMutation()
+    // const [addReport]                   = useAddReportMutation()
     const [addReportBaseData]           = useAddReportBaseDataMutation()
     const [addReportChartData]          = useAddReportChartDataMutation()
     const [addChartAxis]                = useAddChartAxisMutation()
@@ -83,7 +82,6 @@ export const useChartsForm = ({dept_name, chart_id}:{dept_name:string, chart_id?
                 if(res?.message)
                     toast.success(res?.message)
                 setForm({...form, report_id:res?.id})
-                router.push(pathName+`?step=${step+1}`)
                 setStep(2)
 
             }).catch(err=>{
@@ -146,25 +144,7 @@ export const useChartsForm = ({dept_name, chart_id}:{dept_name:string, chart_id?
     }
         
 
-    const submitAllChartData = (e:FormEvent) =>{
-        e.preventDefault()
-        if(chart_id){
-        addReport({form:getAsFormData(), step})
-            .unwrap()
-            .then(res=>{
-                if(res?.message)
-                    toast.success(res?.message)
-                
-                if (step < 3)
-                    router.push(pathName+`?step=${step+1}`)
-                else
-                    router.push(pathName.replace('/add', ''))
-
-            }).catch(err=>{
-                console.log(err?.data);
-            })
-        }
-    }
+    
 
     
 
@@ -180,7 +160,7 @@ return {
         submitBaseData,
         submitChartData,
         submitAxisData,
-        submitAllChartData,
+        // submitAllChartData,
         setForm
     }
 }
