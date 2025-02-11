@@ -50,7 +50,7 @@ const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
         :
           charts && charts?.length?
             charts?.map((chart:any)=>(
-            <div className={`bg-card h-auto px-2 rounded-xl ${chart?.chart?.options?.width == '100%' ? 'col-span-2':'col-span-1'}`}>
+            <div className={`bg-card h-auto px-2 max-h-[600px] mx-auto rounded-xl ${chart?.chart?.options?.width == '100%' ? 'col-span-2':'col-span-1'}`}>
                 <Chart
                   type={chart?.chart?.options?.type}
                   title={chart?.name}
