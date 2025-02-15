@@ -10,6 +10,7 @@ import UserFormOverLay from './_Components/AddUserOverLay'
 import Paginition from '@/Components/Lists/Paginition'
 import { BiEdit } from 'react-icons/bi'
 import { ImHome3 } from 'react-icons/im'
+import { EditIcon } from '@/Components/Shared/SharedIcons'
 
 
 const BreadcrumbData = [
@@ -53,7 +54,7 @@ const page = () => {
 
   const options = (row:any)=>(
     <div className='flex gap-4 items-start'>
-      <button onClick={()=>{handleOverLay();setUserId(row?.id)}} className=' text-blue-600 text-lg transition-all rounded-full' ><BiEdit />
+      <button onClick={()=>{handleOverLay();setUserId(row?.id)}} className='text-lg transition-all rounded-full' ><EditIcon />
       </button>
     </div>
   )

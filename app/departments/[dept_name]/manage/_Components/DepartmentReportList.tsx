@@ -43,7 +43,7 @@ const ReportChartList = () => {
           data?.reports.map((report:reportType)=>(
             <MainCard
               description={report?.connection + ` ( ${report?.chart_type} )`}
-              href={report?.id}
+              href={'charts/'+report?.id}
               icon={<FcPieChart />}
               title={report?.name}
             />

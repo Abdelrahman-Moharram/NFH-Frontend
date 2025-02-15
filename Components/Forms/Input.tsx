@@ -54,7 +54,7 @@ const Input = ({
 						<button 
 							type='button'
 							onClick={()=>setType(inputType === 'text'?'password':'text')}
-							className='absolute end-2.5 rounded-full top-2.5 p-1.5 transition-all hover:bg-secondary/20'
+							className='absolute end-2.5 rounded-full top-1.5 p-1 transition-all hover:bg-secondary/20'
 						>
 							<FaEye />
 						</button>

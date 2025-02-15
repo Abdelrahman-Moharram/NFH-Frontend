@@ -60,6 +60,7 @@ export const apiSlice = createApi({
 	endpoints: builder => ({}),
 	tagTypes: [
 		'users', 
-		'departments'
+		'departments',
+		'connections'
 	],
 });

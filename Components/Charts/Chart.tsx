@@ -26,7 +26,7 @@ const Chart = ({title, data, options, type, controls}:chart_types & Props) => {
     )
   }
   return (
-    <div className="relative">
+    <div className="relative mx-auto">
       
       <GetChartOptions />
       <div className="p-4">

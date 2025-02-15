@@ -45,6 +45,7 @@ const departmentsApiSlice = apiSlice.injectEndpoints({
                 body:form,
                 method:'POST',
             }),
+            invalidatesTags:['departments']
         }),
     }) 
 })

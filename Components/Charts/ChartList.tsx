@@ -42,7 +42,7 @@ const options = {
   }
 const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
   return (
-    <div className='grid grid-cols-2 gap-4 space-y-4 py-12'>
+    <div className='grid grid-cols-2 gap-4 py-12'>
 
         {
           isLoading?
@@ -50,14 +50,16 @@ const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
         :
           charts && charts?.length?
             charts?.map((chart:any)=>(
-            <div className={`bg-card h-auto px-2 max-h-[600px] mx-auto rounded-xl ${chart?.chart?.options?.width == '100%' ? 'col-span-2':'col-span-1'}`}>
-                <Chart
-                  type={chart?.chart?.options?.type}
-                  title={chart?.name}
-                  data={chart?.chart?.data}
-                  options={options}
-                  controls
-                />
+            <div className={` w-full ${chart?.chart?.options?.width == '100%' ? 'col-span-2':'col-span-1'}`}>
+              <div className={`bg-card px-2  max-h-[600px] mx-auto rounded-xl ${chart?.chart?.options?.width == '100%' ? 'w-[50%]':'w-full'}`}>
+                  <Chart
+                    type={chart?.chart?.options?.type}
+                    title={chart?.name}
+                    data={chart?.chart?.data}
+                    options={options}
+                    controls
+                  />
+              </div>
             </div>
           ))
         :

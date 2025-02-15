@@ -19,7 +19,7 @@ export interface SharedProps{
 }
 
 const ChartForm = () => {
-    const {dept_name}:{dept_name:string} = useParams()
+    const {dept_name, report_id}:{dept_name:string, report_id:string} = useParams()
 
 
     
@@ -34,7 +34,7 @@ const ChartForm = () => {
         submitAxisData,
         setForm,
         step,
-    } = useChartsForm({dept_name})
+    } = useChartsForm({dept_name, report_id})
 
     const Steps = [
         {

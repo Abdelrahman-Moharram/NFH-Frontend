@@ -1,17 +1,17 @@
 import Breadcrumb from '@/Components/Common/Breadcrumb'
 import SmallCardsList from '@/Components/Lists/SmallCardsList'
 import React from 'react'
-import { FaUserShield } from 'react-icons/fa'
+import { FaBuilding, FaUserShield } from 'react-icons/fa'
 import { FaUsersGear } from 'react-icons/fa6'
-import { GiNotebook } from 'react-icons/gi'
+import { FcAddDatabase } from 'react-icons/fc'
 import { ImHome3 } from 'react-icons/im'
 
 const cardsList = [
-  {label:'Departments', href:'departments', color:'text-blue-600', icon:<FaUsersGear />, description:'You can add, edit, delete activate/deactivate users, and change users role.'},
-  {label:'Reports', href:'reports', color:'text-red-600', icon:<GiNotebook /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
-  {label:'Users', href:'users', color:'text-blue-600', icon:<FaUsersGear />, description:'You can add, edit, delete activate/deactivate users, and change users role.'},
-  {label:'Roles', href:'roles', color:'text-green-600', icon:<FaUserShield />, description:'Manage Roles, and Assign/Remove permissions from role.'},
-  {label:'Users', href:'users', color:'text-primary', icon:<FaUserShield /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
+  {label:'Users', href:'users', color:'text-blue-600', icon:<FaUsersGear />, description:'Add, edit, delete activate/deactivate users, and change users role.'},
+  {label:'Roles', href:'roles', color:'text-red-600', icon:<FaUserShield />, description:'Manage Roles, and Assign/Remove permissions from role.'},
+  {label:'Departments', href:'departments', color:'text-green-600', icon:<FaBuilding />, description:'Add, edit, delete activate/deactivate users, and change users role.'},
+  // {label:'Reports', href:'reports', color:'text-red-600', icon:<GiNotebook /> , description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio itaque provident sapiente saepe in natus iste. Temporibus esse, aperiam quibusdam cum asperiores aut exercitationem provident, doloremque quis, omnis necessitatibus molestias.'},
+  {label:'Connection', href:'/connections', color:'text-primary', icon:<FcAddDatabase /> , description:'Manage Connection of databases [add, edit, delete, check connection]'},
 ]
 const BreadcrumbData = [
   {

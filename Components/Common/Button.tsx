@@ -4,12 +4,12 @@ import Spinner from './Spinner';
 interface props{
     title: string
     submit?: boolean;
-    isLoading: boolean;
+    isLoading?: boolean;
     onClick?:()=>void;
     icon?:React.ReactNode;
     className?: string
   }
-const Button = ({title, submit, isLoading, onClick, icon, className}:props) => {
+const Button = ({title, submit, onClick, icon, className, isLoading=false}:props) => {
   return (
     <button
         

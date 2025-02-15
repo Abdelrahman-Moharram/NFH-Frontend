@@ -26,7 +26,7 @@ export interface ChartFormType{
     y_axes      :string[]
 }
 
-export const useChartsForm = ({dept_name, chart_id}:{dept_name:string, chart_id?:string}) =>{
+export const useChartsForm = ({dept_name, report_id}:{dept_name:string, report_id?:string}) =>{
     const [form, setForm]               = useState<ChartFormType>(baseChartForm)
     const [formErrors, setFormErrors]   = useState<any>()
     const [step, setStep]               = useState<number>(1)
