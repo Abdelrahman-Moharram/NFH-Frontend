@@ -189,7 +189,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .bg-login-image{
-  background-image: url('/Login-Background.png');
+  /* background-image: url('/Login-Background.png'); */
+  background-color: rgba(250, 252, 255, 1);
   background-size: cover;
   background-attachment: fixed;
   position: fixed;

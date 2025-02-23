@@ -19,7 +19,7 @@ const MainData = ({
       onSubmit={onSubmit}
       method='post'
     >    
-      <div className="w-full">
+      <div className="w-full grid grid-cols-2 gap-4">
         <SelectInput
           onChange={selectChange}
           value={form.chart_type}
@@ -27,11 +27,21 @@ const MainData = ({
           labelId='chart_type'
           label='Chart Type'
         >
-        {
-          dropdowns?.chart_types?.map((chart_type:baseType)=>(
-            <option value={chart_type?.id}>{chart_type?.name}</option>
-          ))
-        }
+          {
+            dropdowns?.chart_types?.map((chart_type:baseType)=>(
+              <option value={chart_type?.id}>{chart_type?.name}</option>
+            ))
+          }
+        </SelectInput>
+        
+        <SelectInput
+          onChange={selectChange}
+          value={form.width}
+          required
+          labelId='width'
+          label='Chart Width'
+          options={dropdowns?.widths}
+        >
         </SelectInput>
       </div>
       <div>

@@ -33,7 +33,7 @@ const Chart = ({title, data, options, type, controls}:chart_types & Props) => {
         <div className="text-[24px] font-extrabold text-secondary ">
           {title}
         </div>
-        <div className='drop-shadow-xl overflow-hidden pt-6 space-y-5 h-[90%] max-h-[500px] my-auto' ref={elementRef}>
+        <div className='drop-shadow-xl overflow-hidden space-y-5 min-h-[400px] h-[100%] max-h-[800px] my-auto' ref={elementRef}>
           <DynamicChart
             type={type}
             data={data}

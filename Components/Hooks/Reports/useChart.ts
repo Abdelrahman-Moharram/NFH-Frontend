@@ -136,7 +136,7 @@ export const useChartsForm = ({dept_name, report_id}:{dept_name:string, report_i
             .unwrap()
             .then(res=>{
                 toast.success(res?.message)
-                router.push('/departments/human-resources/manage/charts')
+                router.push(`/departments/${dept_name}/manage/charts`)
             })
             .catch(err=>{
                 console.log(err);

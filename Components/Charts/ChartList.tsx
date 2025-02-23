@@ -20,7 +20,27 @@ const options = {
       
       },
     },
-  };
+};
+// const options = {
+//   responsive: true,
+//   maintainAspectRatio: false,
+//   plugins: {
+//     // legend: { display: false }, // Hide legend
+//   },
+//   scales: {
+//     x: {
+//       grid: { display: false }, // Hide grid lines
+//       ticks: { color: "#4A5A74", font: { weight: "bold" } },
+//     },
+//     y: {
+//       display: false, // Hide Y-axis labels
+//       min: 0,
+//       max: 200, // Ensures space above max value
+//       grid: { display: false },
+//     },
+//   },
+
+// };
   
   const DynamicChartSkeleton = () =>{
     const l = []
@@ -50,13 +70,13 @@ const ChartList = ({charts, isLoading}:{charts:any, isLoading:boolean}) => {
         :
           charts && charts?.length?
             charts?.map((chart:any)=>(
-            <div className={` w-full ${chart?.chart?.options?.width == '100%' ? 'col-span-2':'col-span-1'}`}>
-              <div className={`bg-card px-2  max-h-[600px] mx-auto rounded-xl ${chart?.chart?.options?.width == '100%' ? 'w-[50%]':'w-full'}`}>
+            <div className={` w-full ${chart?.chart?.utils?.width == '100%' ? 'col-span-2':'col-span-1'}`}>
+              <div className={`bg-card px-2  max-h-[800px] mx-auto rounded-xl ${chart?.chart?.utils?.width == '100%' ? 'w-[80%]':'w-full'}`}>
                   <Chart
-                    type={chart?.chart?.options?.type}
+                    type={chart?.chart?.utils?.type}
                     title={chart?.name}
                     data={chart?.chart?.data}
-                    options={options}
+                    options={chart?.chart?.options || options}
                     controls
                   />
               </div>
